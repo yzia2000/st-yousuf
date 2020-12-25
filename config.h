@@ -188,11 +188,8 @@ static MouseShortcut mshortcuts[] = {
 /*
  * Url handling
  */
-static char *openurlcmd[] = { "/bin/sh", "-c", "st-urlhandler", "externalpipe", NULL };
-
-static char *copyurlcmd[] = { "/bin/sh", "-c",
-    "tmp=$(sed 's/.*│//g' | tr -d '\n' | grep -aEo '(((http|https|gopher|gemini|ftp|ftps|git)://|www\\.)[a-zA-Z0-9.]*[:]?[a-zA-Z0-9./@$&%?$#=_-~]*)|((magnet:\\?xt=urn:btih:)[a-zA-Z0-9]*)' | uniq | sed 's/^www./http:\\/\\/www\\./g' ); IFS=; [ ! -z $tmp ] && echo $tmp | dmenu -i -p 'Copy which url?' -l 10 | tr -d '\n' | xclip -selection clipboard",
-    "externalpipe", NULL };
+static char *openurlcmd[] = { "/bin/sh", "-c", "$HOME/.config/st/st-urlhandler -o", "externalpipe", NULL };
+static char *copyurlcmd[] = { "/bin/sh", "-c", "$HOME/.config/st/st-urlhandler -c", "externalpipe", NULL };
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
