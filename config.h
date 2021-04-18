@@ -200,6 +200,8 @@ static MouseShortcut mshortcuts[] = {
  */
 static char *openurlcmd[] = { "/bin/sh", "-c", "$HOME/.config/st/st-urlhandler -o", "externalpipe", NULL };
 static char *copyurlcmd[] = { "/bin/sh", "-c", "$HOME/.config/st/st-urlhandler -c", "externalpipe", NULL };
+static char *copyoutput[] = { "/bin/sh", "-c", "$HOME/.config/st/st-copyout", "externalpipe", NULL };
+static char *editscreen[] = { "/bin/sh", "-c", "$HOME/.config/st/st-editscreen", "externalpipe", NULL };
 
 /* Internal keyboard shortcuts. */
 #define MODKEY Mod1Mask
@@ -237,6 +239,8 @@ static Shortcut shortcuts[] = {
 	{ TERMMOD,              XK_D,           zoom,           {.f = -2} },
 	{ MODKEY,               XK_l,           externalpipe,   {.v = openurlcmd } },
 	{ MODKEY,               XK_y,           externalpipe,   {.v = copyurlcmd } },
+	{ MODKEY,               XK_o,           externalpipe,   {.v = copyoutput } },
+	{ MODKEY,               XK_e,           externalpipe,   {.v = editscreen } },
 };
 /*
  * Special keys (change & recompile st.info accordingly)
